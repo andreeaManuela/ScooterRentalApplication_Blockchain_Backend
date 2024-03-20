@@ -1,2 +1,2 @@
-# RealEstate_Blockchain
-Licenta Blockchain in real estate folosind state channels
+# RealEstate_Blockchain_Backend
+Partea de backend pentru proiectul de licenta pentru o agentie imobiliara folosind blockchain.
