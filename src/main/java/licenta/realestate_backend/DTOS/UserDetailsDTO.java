@@ -1,44 +1,38 @@
-package licenta.realestate_backend.Entities;
+package licenta.realestate_backend.DTOS;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+import org.antlr.v4.runtime.misc.NotNull;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+public class UserDetailsDTO{
     private Long id;
-
-    @Column(name = "name", nullable = false)
+    @NotNull
     private String name;
-
-    @Column(name = "email", nullable = false)
+    @NotNull
     private String email;
-
-    @Column(name = "password", nullable = false)
+    @NotNull
     private String password;
-
-    @Column(name="address", nullable = false)
+    @NotNull
     private String address;
-
-    @Column(name="phone", nullable = false)
+    @NotNull
     private String phone;
-
-    @Column(name="wallet_address", nullable = false)
+    @NotNull
     private String walletAddress;
 
+    public UserDetailsDTO(){
 
-    public User(String name, String email, String password, String address, String phone, String walletAddress) {
+    }
+
+    public UserDetailsDTO(String name, String email, String password, String address, String phone, String walletAddress) {
+        this.name=name;
+        this.email=email;
+        this.password=password;
+        this.address=address;
+        this.phone=phone;
+        this.walletAddress=walletAddress;
+
+    }
+
+    public UserDetailsDTO(Long id, String name, String email, String password, String address, String phone, String walletAddress) {
+        this.id=id;
         this.name=name;
         this.email=email;
         this.password=password;
@@ -103,6 +97,4 @@ public class User {
     public void setWalletAddress(String walletAddress) {
         this.walletAddress = walletAddress;
     }
-
-
 }

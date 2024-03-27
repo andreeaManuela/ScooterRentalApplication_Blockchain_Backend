@@ -8,14 +8,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import java.util.TimeZone;
 
 @SpringBootApplication
-public class RealEstateBackendApplication extends SpringBootServletInitializer{
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder applicationBuilder){
-        return applicationBuilder.sources(RealEstateBackendApplication.class);
-    }
-
-
-    public static void main(String[] args) {
+public class RealEstateBackendApplication {
+      public static void main(String[] args) {
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
         SpringApplication.run(RealEstateBackendApplication.class, args);
     }

@@ -1,44 +1,22 @@
-package licenta.realestate_backend.Entities;
+package licenta.realestate_backend.DTOS;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
+import jakarta.persistence.Column;
 
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+public class UserDTO {
     private Long id;
-
-    @Column(name = "name", nullable = false)
     private String name;
-
-    @Column(name = "email", nullable = false)
     private String email;
-
-    @Column(name = "password", nullable = false)
     private String password;
-
-    @Column(name="address", nullable = false)
     private String address;
-
-    @Column(name="phone", nullable = false)
     private String phone;
-
-    @Column(name="wallet_address", nullable = false)
     private String walletAddress;
 
+    public UserDTO(){
 
-    public User(String name, String email, String password, String address, String phone, String walletAddress) {
+    }
+
+    public UserDTO(Long id, String name, String email, String password, String address, String phone, String walletAddress) {
+        this.id=id;
         this.name=name;
         this.email=email;
         this.password=password;
@@ -103,6 +81,4 @@ public class User {
     public void setWalletAddress(String walletAddress) {
         this.walletAddress = walletAddress;
     }
-
-
 }
