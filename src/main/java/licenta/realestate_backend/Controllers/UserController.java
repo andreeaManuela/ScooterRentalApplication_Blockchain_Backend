@@ -20,7 +20,7 @@ public class UserController {
 
     @PostMapping()
     public ResponseEntity<Long> insertUser(@RequestBody UserDetailsDTO userDetailsDTO){
-        System.out.println(userDetailsDTO);
+        System.out.println(userDetailsDTO.toString());
         //Long userId= userService.insert(userDetailsDTO);
         //return new ResponseEntity<>(userId, HttpStatus.CREATED);
         return new ResponseEntity<>(HttpStatus.OK);

@@ -97,4 +97,17 @@ public class UserDetailsDTO{
     public void setWalletAddress(String walletAddress) {
         this.walletAddress = walletAddress;
     }
+
+    @Override
+    public String toString() {
+        return "UserDetailsDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", walletAddress='" + walletAddress + '\'' +
+                '}';
+    }
 }
