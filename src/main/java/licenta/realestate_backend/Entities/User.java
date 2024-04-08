@@ -1,6 +1,7 @@
 package licenta.realestate_backend.Entities;
 
 import jakarta.persistence.*;
+import licenta.realestate_backend.Enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,15 +38,18 @@ public class User {
     @Column(name="wallet_address", nullable = false)
     private String walletAddress;
 
+    @Column(name="role", nullable = false)
+    private Role role;
 
-    public User(String name, String email, String password, String address, String phone, String walletAddress) {
+
+    public User(String name, String email, String password, String address, String phone, String walletAddress, Role role) {
         this.name=name;
         this.email=email;
         this.password=password;
         this.address=address;
         this.phone=phone;
         this.walletAddress=walletAddress;
-
+        this.role=role;
     }
 
     public Long getId() {
@@ -104,5 +108,11 @@ public class User {
         this.walletAddress = walletAddress;
     }
 
+    public Role getRole() {
+        return role;
+    }
 
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }

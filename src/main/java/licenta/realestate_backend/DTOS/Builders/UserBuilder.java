@@ -11,11 +11,11 @@ public class UserBuilder {
     }
 
     public static UserDTO toUserDTO(User user) {
-        return new UserDTO(user.getId(), user.getName(), user.getEmail(), user.getPassword(), user.getAddress(), user.getPhone(), user.getWalletAddress());
+        return new UserDTO(user.getId(), user.getName(), user.getEmail(), user.getPassword(), user.getAddress(), user.getPhone(), user.getWalletAddress(), user.getRole());
     }
 
     public static UserDetailsDTO toUserDetailsDTO(User user) {
-        return new UserDetailsDTO(user.getId(), user.getName(), user.getEmail(), user.getPassword(), user.getAddress(), user.getPhone(), user.getWalletAddress());
+        return new UserDetailsDTO(user.getId(), user.getName(), user.getEmail(), user.getPassword(), user.getAddress(), user.getPhone(), user.getWalletAddress(), user.getRole());
     }
 
     public static User toEntity(UserDetailsDTO userDetailsDTO) {
@@ -25,7 +25,8 @@ public class UserBuilder {
                 userDetailsDTO.getPassword(),
                 userDetailsDTO.getAddress(),
                 userDetailsDTO.getPhone(),
-                userDetailsDTO.getWalletAddress());
+                userDetailsDTO.getWalletAddress(),
+                userDetailsDTO.getRole());
     }
 
 }

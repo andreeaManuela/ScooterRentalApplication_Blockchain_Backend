@@ -1,6 +1,7 @@
 package licenta.realestate_backend.DTOS;
 
 import jakarta.persistence.Column;
+import licenta.realestate_backend.Enums.Role;
 
 public class UserDTO {
     private Long id;
@@ -10,12 +11,14 @@ public class UserDTO {
     private String address;
     private String phone;
     private String walletAddress;
+    private Role role;
+
 
     public UserDTO(){
 
     }
 
-    public UserDTO(Long id, String name, String email, String password, String address, String phone, String walletAddress) {
+    public UserDTO(Long id, String name, String email, String password, String address, String phone, String walletAddress, Role role) {
         this.id=id;
         this.name=name;
         this.email=email;
@@ -23,6 +26,7 @@ public class UserDTO {
         this.address=address;
         this.phone=phone;
         this.walletAddress=walletAddress;
+        this.role=role;
 
     }
 
@@ -80,5 +84,13 @@ public class UserDTO {
 
     public void setWalletAddress(String walletAddress) {
         this.walletAddress = walletAddress;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 }

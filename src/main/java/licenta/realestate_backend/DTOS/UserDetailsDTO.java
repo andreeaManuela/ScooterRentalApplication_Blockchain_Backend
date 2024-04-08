@@ -1,5 +1,6 @@
 package licenta.realestate_backend.DTOS;
 
+import licenta.realestate_backend.Enums.Role;
 import org.antlr.v4.runtime.misc.NotNull;
 
 public class UserDetailsDTO{
@@ -17,21 +18,24 @@ public class UserDetailsDTO{
     @NotNull
     private String walletAddress;
 
+    @NotNull
+    private Role role;
+
     public UserDetailsDTO(){
 
     }
 
-    public UserDetailsDTO(String name, String email, String password, String address, String phone, String walletAddress) {
+    public UserDetailsDTO(String name, String email, String password, String address, String phone, String walletAddress, Role role) {
         this.name=name;
         this.email=email;
         this.password=password;
         this.address=address;
         this.phone=phone;
         this.walletAddress=walletAddress;
-
+        this.role=role;
     }
 
-    public UserDetailsDTO(Long id, String name, String email, String password, String address, String phone, String walletAddress) {
+    public UserDetailsDTO(Long id, String name, String email, String password, String address, String phone, String walletAddress, Role role) {
         this.id=id;
         this.name=name;
         this.email=email;
@@ -39,7 +43,7 @@ public class UserDetailsDTO{
         this.address=address;
         this.phone=phone;
         this.walletAddress=walletAddress;
-
+        this.role=role;
     }
 
     public Long getId() {
@@ -98,6 +102,14 @@ public class UserDetailsDTO{
         this.walletAddress = walletAddress;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "UserDetailsDTO{" +
@@ -108,6 +120,7 @@ public class UserDetailsDTO{
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
                 ", walletAddress='" + walletAddress + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }
