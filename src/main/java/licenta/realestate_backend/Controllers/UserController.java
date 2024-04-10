@@ -1,6 +1,6 @@
 package licenta.realestate_backend.Controllers;
 
-import licenta.realestate_backend.DTOS.UserDetailsDTO;
+import licenta.realestate_backend.DTOS.UserDTO;
 import licenta.realestate_backend.Services.EthereumAccountService;
 import licenta.realestate_backend.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public ResponseEntity<Long> insertUser(@RequestBody UserDetailsDTO userDetailsDTO) {
+    public ResponseEntity<Long> insertUser(@RequestBody UserDTO userDetailsDTO) {
         System.out.println(userDetailsDTO.toString());
 
         try {

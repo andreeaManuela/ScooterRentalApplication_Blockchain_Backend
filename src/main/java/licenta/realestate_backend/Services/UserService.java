@@ -2,7 +2,6 @@ package licenta.realestate_backend.Services;
 
 import licenta.realestate_backend.DTOS.Builders.UserBuilder;
 import licenta.realestate_backend.DTOS.UserDTO;
-import licenta.realestate_backend.DTOS.UserDetailsDTO;
 import licenta.realestate_backend.Entities.User;
 import licenta.realestate_backend.Enums.Role;
 import licenta.realestate_backend.Repositories.UserRepository;
@@ -35,7 +34,7 @@ public class UserService {
     }
 
 
-    public Long insert(UserDetailsDTO userDetailsDTO){
+    public Long insert(UserDTO userDetailsDTO){
         userDetailsDTO.setRole(Role.CLIENT);
         User user= UserBuilder.toEntity(userDetailsDTO);
         user=userRepository.save(user);
