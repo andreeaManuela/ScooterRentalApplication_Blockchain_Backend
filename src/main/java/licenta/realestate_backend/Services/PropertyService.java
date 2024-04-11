@@ -2,12 +2,8 @@ package licenta.realestate_backend.Services;
 
 import jakarta.persistence.EntityNotFoundException;
 import licenta.realestate_backend.DTOS.Builders.PropertyBuilder;
-import licenta.realestate_backend.DTOS.Builders.UserBuilder;
 import licenta.realestate_backend.DTOS.PropertyDTO;
-import licenta.realestate_backend.DTOS.UserDTO;
 import licenta.realestate_backend.Entities.Property;
-import licenta.realestate_backend.Entities.User;
-import licenta.realestate_backend.Enums.Role;
 import licenta.realestate_backend.Repositories.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,9 +49,10 @@ public class PropertyService {
 
     //INSERT
     public Long insert(PropertyDTO propertyDTO){
+        propertyDTO.setId_proprietar(1L);
         Property property= PropertyBuilder.toEntity(propertyDTO);
         property=propertyRepository.save(property);
-        System.out.println("User with id {} was inserted in db " + property.getId_property());
+        System.out.println("Property with id " + property.getId_property() + " was inserted in db " );
         return property.getId_property();
 
     }

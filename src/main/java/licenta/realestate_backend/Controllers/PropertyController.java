@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -44,7 +46,28 @@ public class PropertyController {
     }
 
     @PostMapping()
-    public ResponseEntity<Long> insert(@RequestBody PropertyDTO propertyDTO) {
+    public ResponseEntity<Long> insert(
+            @RequestParam("name") String name,
+            @RequestParam("location") String location,
+            @RequestParam("address") String address,
+            @RequestParam("description") String description,
+            @RequestParam("price") Float price,
+            @RequestParam("type") String type,
+            @RequestParam("availability") String availability,
+            @RequestParam("photo") MultipartFile photoFile) {
+       PropertyDTO propertyDTO = new PropertyDTO();
+       propertyDTO.setName(name);
+       propertyDTO.setLocation(location);
+       propertyDTO.setAddress(address);
+       propertyDTO.setDescription(description);
+       propertyDTO.setPrice(price);
+       propertyDTO.setType(type);
+       propertyDTO.setAvailability(availability);
+        try {
+            propertyDTO.setPhoto(photoFile.getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         Long propertID = propertyService.insert(propertyDTO);
         return new ResponseEntity<>(propertID, HttpStatus.CREATED);
     }
