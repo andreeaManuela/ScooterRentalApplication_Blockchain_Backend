@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -41,6 +43,16 @@ public class UserService {
         LOGGER.debug("User with id {} was inserted in db", user.getId());
         return user.getId();
 
+    }
+
+    public List<String> getAllAccounts(){
+        List<User> userList = userRepository.findAll();
+        List<String> accounts= new ArrayList<>();
+        for(User u: userList){
+            accounts.add(u.getWalletAddress());
+        }
+
+        return accounts;
     }
 
 }

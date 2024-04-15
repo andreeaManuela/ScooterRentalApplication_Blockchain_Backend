@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -25,25 +26,31 @@ public class UserController {
         this.ethereumAccountService = ethereumAccountService;
     }
 
+    @GetMapping(value = "/accounts")
+    public ResponseEntity<List<String>> getAccounts(){
+        List<String> accounts= userService.getAllAccounts();
+        return new ResponseEntity<>(accounts, HttpStatus.OK);
+    }
+
     @PostMapping()
     public ResponseEntity<Long> insertUser(@RequestBody UserDTO userDetailsDTO) {
         System.out.println(userDetailsDTO.toString());
 
-        try {
-            // Verifică dacă adresa Ethereum a fost furnizată
-            String ethereumAddress = userDetailsDTO.getWalletAddress();
-            if (ethereumAddress == null || ethereumAddress.isEmpty()) {
-                // Dacă nu există o adresă de Ethereum, crează un cont nou
-                ethereumAddress = ethereumAccountService.createNewAccount();
-                userDetailsDTO.setWalletAddress(ethereumAddress);
-            }
-        } catch (InvalidAlgorithmParameterException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchProviderException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            // Verifică dacă adresa Ethereum a fost furnizată
+//            String ethereumAddress = userDetailsDTO.getWalletAddress();
+//            if (ethereumAddress == null || ethereumAddress.isEmpty()) {
+//                // Dacă nu există o adresă de Ethereum, crează un cont nou
+//                ethereumAddress = ethereumAccountService.createNewAccount();
+//                userDetailsDTO.setWalletAddress(ethereumAddress);
+//            }
+//        } catch (InvalidAlgorithmParameterException e) {
+//            throw new RuntimeException(e);
+//        } catch (NoSuchAlgorithmException e) {
+//            throw new RuntimeException(e);
+//        } catch (NoSuchProviderException e) {
+//            throw new RuntimeException(e);
+//        }
 
         System.out.println("AFTER: " + userDetailsDTO.toString());
         Long userId= userService.insert(userDetailsDTO);
