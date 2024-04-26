@@ -60,7 +60,7 @@ public class PropertyService {
     //UPDATE
     public void updateProperty(PropertyDTO propertyDTO){
         Optional<Property> optionalProperty = propertyRepository.updateProperty(propertyDTO.getName());
-        //verific daca exista utilizatorul in baza de date
+        //verific daca exista proprietatea in baza de date in baza de date
         if(!optionalProperty.isPresent()){
             throw new EntityNotFoundException("Property with name: " + propertyDTO.getName() + " not found!");
         }
@@ -77,6 +77,20 @@ public class PropertyService {
         if(propertyDTO.getPrice() != null){
             property.setPrice(propertyDTO.getPrice());
         }
+        //salvez userul si il actualizez in baza de date
+        Property update= propertyRepository.save(property);
+    }
+
+    //UPDATE AVAILABILITY
+    public void updatePropertyAvailability(Long id){
+        Optional<Property> optionalProperty = propertyRepository.findById(id);
+        //verific daca exista proprietatea in baza de date in baza de date
+        if(!optionalProperty.isPresent()){
+            throw new EntityNotFoundException("Property with id: " + id + " not found!");
+        }
+        Property property = optionalProperty.get();
+        property.setAvailability("NO");
+
         //salvez userul si il actualizez in baza de date
         Property update= propertyRepository.save(property);
     }
