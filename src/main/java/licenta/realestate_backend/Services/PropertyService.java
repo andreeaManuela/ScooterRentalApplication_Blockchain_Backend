@@ -95,6 +95,19 @@ public class PropertyService {
         Property update= propertyRepository.save(property);
     }
 
+    public void updatePropertyOwner(Long id, Long id_owner){
+        Optional<Property> optionalProperty = propertyRepository.findById(id);
+        //verific daca exista proprietatea in baza de date in baza de date
+        if(!optionalProperty.isPresent()){
+            throw new EntityNotFoundException("Property with id: " + id + " not found!");
+        }
+        Property property = optionalProperty.get();
+        property.setId_proprietar(id_owner);
+
+        //salvez userul si il actualizez in baza de date
+        Property update= propertyRepository.save(property);
+    }
+
 
     //DELETE
     public void delete(Long id){

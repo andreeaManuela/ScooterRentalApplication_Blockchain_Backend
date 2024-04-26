@@ -21,7 +21,6 @@ public class LoginController {
 
     @PostMapping()
     public ResponseEntity<String> login(@RequestBody UserDTO userDTO){
-        System.out.println("Asta am primit de la frontend:");
         System.out.println(userDTO.getEmail()+ userDTO.getPassword());
         UserDTO user= userService.findByUsernameAndPassword(userDTO);
         return new ResponseEntity(user, HttpStatus.OK);

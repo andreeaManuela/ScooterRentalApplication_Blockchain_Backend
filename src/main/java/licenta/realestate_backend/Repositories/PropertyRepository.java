@@ -26,6 +26,4 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
             "WHERE p.name = :name ")
     Optional<Property> updateProperty(@Param("name") String name);
 
-
-
 }

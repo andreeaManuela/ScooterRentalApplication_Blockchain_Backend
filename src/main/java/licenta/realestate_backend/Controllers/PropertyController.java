@@ -72,6 +72,13 @@ public class PropertyController {
         return new ResponseEntity<>(propertID, HttpStatus.CREATED);
     }
 
+    @PatchMapping(value = "/updateOwner" )
+    public ResponseEntity<PropertyDTO> updateOwner(@PathVariable("id_property") Long id_property, Long id_new_owner){
+        propertyService.updatePropertyOwner(id_property, id_new_owner);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .build();
+    }
 
     @PatchMapping(value = "/update" )
     public ResponseEntity<PropertyDTO> updateProperty(@RequestBody PropertyDTO propertyDTO){
