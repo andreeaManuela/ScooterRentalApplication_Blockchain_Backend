@@ -35,6 +35,14 @@ public class UserService {
 
     }
 
+    //GET METAMASK ACCOUNT
+    public String getAddressMetamask(Long id){
+        String address= userRepository.getMetaMaskAddress(id);
+        if (address == null || address == "") {
+            LOGGER.error("User with address {} was not found in db", id);
+        }
+        return address;
+    }
 
     public Long insert(UserDTO userDetailsDTO){
         userDetailsDTO.setRole(Role.CLIENT);

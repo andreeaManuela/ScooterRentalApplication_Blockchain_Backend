@@ -81,8 +81,8 @@ public class PropertyController {
                 .build();
     }
 
-    @PatchMapping(value = "/update/availability" )
-    public ResponseEntity<PropertyDTO> updatePropertyAvailability(@RequestBody Long id_property){
+    @PatchMapping(value = "/update/availability/{id_property}" )
+    public ResponseEntity<PropertyDTO> updatePropertyAvailability(@PathVariable("id_property") Long id_property){
         propertyService.updatePropertyAvailability(id_property);
         return ResponseEntity
                 .status(HttpStatus.OK)

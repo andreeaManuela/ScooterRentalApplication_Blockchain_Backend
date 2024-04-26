@@ -32,6 +32,12 @@ public class UserController {
         return new ResponseEntity<>(accounts, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/metamaskAddress/{id}")
+    public ResponseEntity<String> getMetaMaskAddress(@PathVariable("id") Long id){
+        String accounts= userService.getAddressMetamask(id);
+        return new ResponseEntity<>(accounts, HttpStatus.OK);
+    }
+
     @PostMapping()
     public ResponseEntity<Long> insertUser(@RequestBody UserDTO userDetailsDTO) {
         System.out.println(userDetailsDTO.toString());

@@ -15,6 +15,12 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "AND p.password = :password  ")
     Optional<User> functionLogin(@Param("email") String username, @Param("password") String password);
 
+    @Query(value = "SELECT p.walletAddress " +
+            "FROM User p " +
+            "WHERE p.id = :id ")
+    String getMetaMaskAddress(@Param("id") Long id);
+
+
 
 }
 
