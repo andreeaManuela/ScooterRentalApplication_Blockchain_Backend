@@ -17,7 +17,8 @@ public class TransactionBuilder {
                 transaction.getPriceETH(),
                 transaction.getId_property(),
                 transaction.getToAddress(),
-                transaction.getFromAddress()
+                transaction.getFromAddress(),
+                transaction.getTransaction_time()
         );
     }
 
@@ -29,7 +30,8 @@ public class TransactionBuilder {
                 transactionDTO.getPriceETH(),
                 transactionDTO.getId_property(),
                 transactionDTO.getToAddress(),
-                transactionDTO.getFromAddress()
+                transactionDTO.getFromAddress(),
+                transactionDTO.getTransaction_time()
         );
     }
 

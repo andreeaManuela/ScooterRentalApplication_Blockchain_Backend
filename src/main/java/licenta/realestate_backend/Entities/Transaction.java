@@ -36,12 +36,16 @@ public class Transaction {
     @Column(name = "fromAddress")
     private String fromAddress;
 
-    public Transaction(String hash_transaction, Date transaction_date, Float priceETH, Long id_property, String toAddress, String fromAddress) {
+    @Column(name = "transaction_time")
+    private float transaction_time;
+
+    public Transaction(String hash_transaction, Date transaction_date, Float priceETH, Long id_property, String toAddress, String fromAddress, float transaction_time) {
         this.hash_transaction = hash_transaction;
         this.transaction_date = transaction_date;
         this.priceETH = priceETH;
         this.id_property = id_property;
         this.toAddress = toAddress;
         this.fromAddress = fromAddress;
+        this.transaction_time=transaction_time;
     }
 }
