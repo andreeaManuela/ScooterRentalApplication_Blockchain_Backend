@@ -95,6 +95,7 @@ public class PropertyService {
         Property update= propertyRepository.save(property);
     }
 
+    //UPDATE OWNER
     public void updatePropertyOwner(Long id, Long id_owner){
         Optional<Property> optionalProperty = propertyRepository.findById(id);
         //verific daca exista proprietatea in baza de date in baza de date

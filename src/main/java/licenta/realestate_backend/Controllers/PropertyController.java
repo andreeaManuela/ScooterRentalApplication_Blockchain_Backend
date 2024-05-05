@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @CrossOrigin
@@ -73,7 +74,10 @@ public class PropertyController {
     }
 
     @PatchMapping(value = "/updateOwner" )
-    public ResponseEntity<PropertyDTO> updateOwner(@PathVariable("id_property") Long id_property, Long id_new_owner){
+    public ResponseEntity<PropertyDTO> updateOwner(@RequestBody Map<String, Long> param){//(@RequestParam("id_property") Long id_property, @RequestParam("id_new_owner") Long id_new_owner){
+        Long id_property= param.get("id_property");
+        Long id_new_owner = param.get("id_new_owner");
+
         propertyService.updatePropertyOwner(id_property, id_new_owner);
         return ResponseEntity
                 .status(HttpStatus.OK)
