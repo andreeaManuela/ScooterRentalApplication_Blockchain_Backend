@@ -3,11 +3,11 @@ package licenta.realestate_backend.Entities;
 import java.util.Date;
 
 public class TransactionRent {
-    private Long id_contract;
+    private Long transactionRentId;
     private Long id_property;
-    private Long id_seller;
-    private Long id_buyer;
-    private String hash_transaction;
+    private String clientAddress;
     private Date transaction_date;
     private Float price ;
+
+    private int rent_period;
 }
