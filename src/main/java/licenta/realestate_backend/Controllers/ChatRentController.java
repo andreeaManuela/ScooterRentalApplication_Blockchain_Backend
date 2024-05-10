@@ -2,18 +2,14 @@ package licenta.realestate_backend.Controllers;
 
 import licenta.realestate_backend.Entities.ChatMessage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.EventListener;
 import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.socket.messaging.SessionConnectEvent;
-import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 @Controller
 public class ChatRentController {
     private final SimpMessagingTemplate messagingTemplate;
-    private static boolean adminConnected = false;
 
     @Autowired
     public ChatRentController(SimpMessagingTemplate simpMessagingTemplate){
@@ -35,18 +31,12 @@ public class ChatRentController {
     }
 
     //Admin Connected
-    @EventListener
-    public void handleWebSocketConnectListener(SessionConnectEvent event) {
-        adminConnected = true;
-        System.out.println("ADMIN CONECTAT!");
-        messagingTemplate.convertAndSend("/topic/adminStatus", "connected");
+    @MessageMapping("/adminStatus")
+    public void handleAdminToggleStatus(@Payload String status) {
+        System.out.println("Status admin : " + status);
+        messagingTemplate.convertAndSend("/topic/adminStatus", status); // Transmiterea statusului către toți abonații
     }
 
-    @EventListener
-    public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
-        adminConnected = false;
-        System.out.println("ADMIN DECONECTAT!");
-        messagingTemplate.convertAndSend("/topic/adminStatus", "disconnected");
-    }
+
 
 }
