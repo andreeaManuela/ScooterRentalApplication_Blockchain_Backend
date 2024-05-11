@@ -1,16 +1,12 @@
 package licenta.realestate_backend.Controllers;
 
 import licenta.realestate_backend.DTOS.UserDTO;
-import licenta.realestate_backend.Services.EthereumAccountService;
 import licenta.realestate_backend.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.InvalidAlgorithmParameterException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
 import java.util.List;
 
 @RestController
@@ -18,12 +14,10 @@ import java.util.List;
 @RequestMapping(value = "/user")
 public class UserController {
     private final UserService userService;
-    private final EthereumAccountService ethereumAccountService;
 
     @Autowired
-    public UserController(UserService userService, EthereumAccountService ethereumAccountService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.ethereumAccountService = ethereumAccountService;
     }
 
     @GetMapping(value = "/accounts")

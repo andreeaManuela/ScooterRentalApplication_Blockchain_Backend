@@ -19,13 +19,10 @@ import java.util.Map;
 public class PropertyController {
 
     private final PropertyService propertyService;
-    private final PropertyRepository propertyRepository;
 
     @Autowired
-    public PropertyController(PropertyService propertyService,
-                              PropertyRepository propertyRepository){
+    public PropertyController(PropertyService propertyService){
         this.propertyService=propertyService;
-        this.propertyRepository = propertyRepository;
     }
 
     @GetMapping()
