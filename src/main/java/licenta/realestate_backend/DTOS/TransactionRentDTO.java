@@ -26,4 +26,7 @@ public class TransactionRentDTO {
     private Float price_rent ;
 
     private int rent_period;
+
+    private String type_transaction;;
+
 }

@@ -15,7 +15,8 @@ public class TransactionRentBuilder {
                 transactionRent.getId_client(),
                 transactionRent.getTransaction_date(),
                 transactionRent.getPrice_rent(),
-                transactionRent.getRent_period()
+                transactionRent.getRent_period(),
+                transactionRent.getType_transaction()
         );
     }
 
@@ -27,7 +28,8 @@ public class TransactionRentBuilder {
                 transactionRentDTO.getId_client(),
                 transactionRentDTO.getTransaction_date(),
                 transactionRentDTO.getPrice_rent(),
-                transactionRentDTO.getRent_period()
+                transactionRentDTO.getRent_period(),
+                transactionRentDTO.getType_transaction()
         );
     }
 

@@ -47,7 +47,7 @@ public class PropertyService {
                 .collect(Collectors.toList());
     }
 
-    //INSERT
+    //INSERTla fiecar
     public Long insert(PropertyDTO propertyDTO){
         propertyDTO.setId_proprietar(1L);
         Property property= PropertyBuilder.toEntity(propertyDTO);

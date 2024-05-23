@@ -32,7 +32,7 @@ public class TransactionService {
 
     //INSERT TRANSACTION
     public Long insertTransaction(TransactionDTO transactionDTO){
-        transactionDTO.setToAddress("0xb05cC29daAa38c35b66C135FF514A4b1f671ef64");
+        transactionDTO.setToAddress("0x2224288E316bdC682F69ECe1807BeB5f47E9fC05");
         Transaction transaction= TransactionBuilder.toEntity(transactionDTO);
         transaction=transactionRepository.save(transaction);
         System.out.println("Transaction with id " + transaction.getTransactionID() + " was inserted in db " );

@@ -18,7 +18,7 @@ public class TransactionRent {
     @Column(name = "transaction_rent_id", nullable = false)
     private Long transactionRentId;
 
-    @Column(name = "id_property", nullable = false)
+    @Column(name = "id_property")
     private Long id_property;
 
     @Column(name = "clientAddress")
@@ -36,12 +36,16 @@ public class TransactionRent {
     @Column(name = "rent_period", nullable = false)
     private int rent_period;
 
-    public TransactionRent(Long id_property, String clientAddress, Long id_client, Date transaction_date, Float price_rent, int rent_period) {
+    @Column(name = "type_transaction")
+    private String type_transaction;
+
+    public TransactionRent(Long id_property, String clientAddress, Long id_client, Date transaction_date, Float price_rent, int rent_period, String type_transaction) {
         this.id_property = id_property;
         this.clientAddress = clientAddress;
         this.id_client = id_client;
         this.transaction_date = transaction_date;
         this.price_rent = price_rent;
         this.rent_period = rent_period;
+        this.type_transaction=type_transaction;
     }
 }
