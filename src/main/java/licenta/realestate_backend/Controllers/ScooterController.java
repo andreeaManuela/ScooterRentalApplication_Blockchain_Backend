@@ -42,13 +42,14 @@ public class ScooterController {
             @RequestParam("model") String model,
             @RequestParam("zone") String zone,
             @RequestParam("price") Float price,
-            @RequestParam("license_plate_number") String type,
+            @RequestParam("license_plate_number") String license,
             @RequestParam("photo") MultipartFile photoFile) {
         ScooterDTO scooterDTO= new ScooterDTO();
         scooterDTO.setName(name);
         scooterDTO.setModel(model);
         scooterDTO.setZone(zone);
         scooterDTO.setPrice(price);
+        scooterDTO.setLicense_plate_number(license);
         try {
             scooterDTO.setPhoto(photoFile.getBytes());
         } catch (IOException e) {

@@ -32,7 +32,7 @@ public class Scooter {
     private String license_plate_number;
 
     @Lob
-    @Column(name = "photo")
+    @Column(name = "photo", columnDefinition = "LONGBLOB")
     private byte[] photo;
 
     public Scooter(String name, String model, String zone, Float price, String license_plate_number, byte[] photo) {
