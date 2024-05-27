@@ -15,10 +15,12 @@ public class TransactionBuilder {
                 transaction.getHash_transaction(),
                 transaction.getTransaction_date(),
                 transaction.getPriceETH(),
-                transaction.getId_property(),
+                transaction.getId_scooter(),
                 transaction.getToAddress(),
                 transaction.getFromAddress(),
-                transaction.getTransaction_time()
+                transaction.getTransaction_time(),
+                transaction.getRent_period(),
+                transaction.getType_transaction()
         );
     }
 
@@ -28,10 +30,12 @@ public class TransactionBuilder {
                 transactionDTO.getHash_transaction(),
                 transactionDTO.getTransaction_date(),
                 transactionDTO.getPriceETH(),
-                transactionDTO.getId_property(),
+                transactionDTO.getId_scooter(),
                 transactionDTO.getToAddress(),
                 transactionDTO.getFromAddress(),
-                transactionDTO.getTransaction_time()
+                transactionDTO.getTransaction_time(),
+                transactionDTO.getRent_period(),
+                transactionDTO.getType_transaction()
         );
     }
 

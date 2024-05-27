@@ -21,7 +21,7 @@ public class TransactionDTO {
 
     private Float priceETH ;
 
-    private Long id_property;
+    private Long id_scooter;
 
     private String toAddress;
 
@@ -29,13 +29,20 @@ public class TransactionDTO {
 
     private float transaction_time;
 
-    public TransactionDTO(String hash_transaction, Date transaction_date, Float priceETH, Long id_property, String toAddress, String fromAddress, float transaction_time) {
+    private int rent_period;;
+
+    private String type_transaction;;
+
+
+    public TransactionDTO(String hash_transaction, Date transaction_date, Float priceETH, Long id_scooter, String toAddress, String fromAddress, float transaction_time, int rent_period, String type_transaction) {
         this.hash_transaction = hash_transaction;
         this.transaction_date = transaction_date;
         this.priceETH = priceETH;
-        this.id_property = id_property;
+        this.id_scooter = id_scooter;
         this.toAddress = toAddress;
         this.fromAddress = fromAddress;
         this.transaction_time = transaction_time;
+        this.rent_period=rent_period;
+        this.type_transaction=type_transaction;
     }
 }
