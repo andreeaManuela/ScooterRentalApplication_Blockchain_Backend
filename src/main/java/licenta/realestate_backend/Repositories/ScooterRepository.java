@@ -1,6 +1,5 @@
 package licenta.realestate_backend.Repositories;
 
-import licenta.realestate_backend.Entities.Property;
 import licenta.realestate_backend.Entities.Scooter;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

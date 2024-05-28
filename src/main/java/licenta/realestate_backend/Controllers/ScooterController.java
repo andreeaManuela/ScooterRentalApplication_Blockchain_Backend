@@ -1,7 +1,6 @@
 package licenta.realestate_backend.Controllers;
 
 
-import licenta.realestate_backend.DTOS.PropertyDTO;
 import licenta.realestate_backend.DTOS.ScooterDTO;
 import licenta.realestate_backend.Services.ScooterService;
 import org.springframework.beans.factory.annotation.Autowired;

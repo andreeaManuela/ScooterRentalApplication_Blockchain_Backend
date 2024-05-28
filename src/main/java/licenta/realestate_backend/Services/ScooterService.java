@@ -1,11 +1,8 @@
 package licenta.realestate_backend.Services;
 
 import jakarta.persistence.EntityNotFoundException;
-import licenta.realestate_backend.DTOS.Builders.PropertyBuilder;
 import licenta.realestate_backend.DTOS.Builders.ScooterBuilder;
-import licenta.realestate_backend.DTOS.PropertyDTO;
 import licenta.realestate_backend.DTOS.ScooterDTO;
-import licenta.realestate_backend.Entities.Property;
 import licenta.realestate_backend.Entities.Scooter;
 import licenta.realestate_backend.Repositories.ScooterRepository;
 import org.springframework.beans.factory.annotation.Autowired;

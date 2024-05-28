@@ -1,7 +1,6 @@
 package licenta.realestate_backend.Controllers;
 
 import licenta.realestate_backend.DTOS.TransactionDTO;
-import licenta.realestate_backend.Services.PropertyService;
 import licenta.realestate_backend.Services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
