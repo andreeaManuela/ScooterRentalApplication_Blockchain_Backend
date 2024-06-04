@@ -12,7 +12,7 @@ public class TransactionBuilder {
     public static TransactionDTO toTransactionDTO(Transaction transaction){
         return new TransactionDTO(
                 transaction.getTransactionID(),
-                transaction.getHash_transaction(),
+                transaction.getTransaction_hash(),
                 transaction.getTransaction_date(),
                 transaction.getPriceETH(),
                 transaction.getId_scooter(),
@@ -27,7 +27,7 @@ public class TransactionBuilder {
     public static Transaction toEntity(TransactionDTO transactionDTO){
         return new Transaction(
                 transactionDTO.getTransactionID(),
-                transactionDTO.getHash_transaction(),
+                transactionDTO.getTransaction_hash(),
                 transactionDTO.getTransaction_date(),
                 transactionDTO.getPriceETH(),
                 transactionDTO.getId_scooter(),

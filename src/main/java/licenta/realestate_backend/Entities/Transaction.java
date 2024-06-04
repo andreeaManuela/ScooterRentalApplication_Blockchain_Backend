@@ -19,7 +19,7 @@ public class Transaction {
     private Long transactionID;
 
     @Column(name="transaction_hash", nullable = false)
-    private String hash_transaction;
+    private String transaction_hash;
 
     @Column(name="transaction_date", nullable = false)
     private Date transaction_date;
@@ -45,8 +45,8 @@ public class Transaction {
     @Column(name = "type_transaction")
     private String type_transaction;
 
-    public Transaction(String hash_transaction, Date transaction_date, Float priceETH, Long id_scooter, String toAddress, String fromAddress, float transaction_time, int rent_period, String type_transaction) {
-        this.hash_transaction = hash_transaction;
+    public Transaction(String transaction_hash, Date transaction_date, Float priceETH, Long id_scooter, String toAddress, String fromAddress, float transaction_time, int rent_period, String type_transaction) {
+        this.transaction_hash = transaction_hash;
         this.transaction_date = transaction_date;
         this.priceETH = priceETH;
         this.id_scooter = id_scooter;
@@ -56,4 +56,6 @@ public class Transaction {
         this.rent_period= rent_period;
         this.type_transaction=type_transaction;
     }
+
+
 }

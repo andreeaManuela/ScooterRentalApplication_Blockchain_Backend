@@ -15,7 +15,7 @@ import java.util.Date;
 public class TransactionDTO {
     private Long transactionID;
 
-    private String hash_transaction;
+    private String transaction_hash;
 
     private Date transaction_date;
 
@@ -34,8 +34,8 @@ public class TransactionDTO {
     private String type_transaction;;
 
 
-    public TransactionDTO(String hash_transaction, Date transaction_date, Float priceETH, Long id_scooter, String toAddress, String fromAddress, float transaction_time, int rent_period, String type_transaction) {
-        this.hash_transaction = hash_transaction;
+    public TransactionDTO(String transaction_hash, Date transaction_date, Float priceETH, Long id_scooter, String toAddress, String fromAddress, float transaction_time, int rent_period, String type_transaction) {
+        this.transaction_hash = transaction_hash;
         this.transaction_date = transaction_date;
         this.priceETH = priceETH;
         this.id_scooter = id_scooter;
